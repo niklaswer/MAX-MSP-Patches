@@ -41,11 +41,56 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-34",
+					"linecount" : 7,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 518.0, 530.0, 150.0, 98.0 ],
+					"text" : "start point rand does not seem to work\n\ngrain itch does not like flot\n\n\n\n"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-30",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 737.294121623039246, 386.0, 123.0, 20.0 ],
+					"text" : "send #0-grainPitchRand"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-24",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 349.0, 409.138010125160235, 121.0, 20.0 ],
+					"text" : "send #0-grainStartRand"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 343.0, 409.138010125160235, 100.0, 20.0 ],
+					"text" : "send #0-grainStart"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-29",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 763.947613678872585, 336.0, 92.0, 20.0 ],
+					"patching_rect" : [ 824.947613678872585, 336.0, 92.0, 20.0 ],
 					"text" : "send #0-grainPan"
 				}
 
@@ -127,7 +172,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 426.0, 383.0, 96.0, 20.0 ],
+					"patching_rect" : [ 426.0, 369.138010125160235, 100.0, 20.0 ],
 					"text" : "send #0-grainStart"
 				}
 
@@ -138,7 +183,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 838.0, 260.0, 150.0, 18.0 ],
+					"patching_rect" : [ 899.0, 260.0, 150.0, 18.0 ],
 					"text" : "if set to 0 it centers the signal"
 				}
 
@@ -151,7 +196,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 763.947613678872585, 298.0, 50.0, 20.0 ]
+					"patching_rect" : [ 824.947613678872585, 298.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -228,7 +273,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 676.294121623039246, 252.358162343502045, 72.0, 30.0 ],
+					"patching_rect" : [ 737.294121623039246, 252.358162343502045, 72.0, 30.0 ],
 					"text" : "GRAIN PITCH \nRange Random",
 					"textjustification" : 1
 				}
@@ -244,7 +289,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 756.394370123744011, 252.358162343502045, 65.106487110257149, 30.0 ],
+					"patching_rect" : [ 817.394370123744011, 252.358162343502045, 65.106487110257149, 30.0 ],
 					"text" : "PANNING WIDTH",
 					"textjustification" : 1
 				}
@@ -302,7 +347,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 676.294121623039246, 298.0, 50.0, 20.0 ]
+					"patching_rect" : [ 737.294121623039246, 298.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -703,8 +748,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
-					"patching_rect" : [ 176.0, 400.0, 128.0, 20.0 ],
-					"text" : "poly~ grainGen 8 args #0"
+					"patching_rect" : [ 176.0, 400.0, 136.0, 20.0 ],
+					"text" : "poly~  grainGen 80 args #0"
 				}
 
 			}
@@ -740,8 +785,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-24", 0 ],
+					"source" : [ "obj-14", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
 					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-30", 0 ],
+					"source" : [ "obj-17", 0 ]
 				}
 
 			}
