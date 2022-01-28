@@ -10,3 +10,7 @@ Max patch based on Tutorial by Oliver Thurley (https://www.youtube.com/watch?v=g
 
 Patch which tracks an audio signal's pitch and triggers a substractive synth.  
 
+## 3. Stutter Effect
+
+Patch takes the input signal and fills a buffer and loops it. The loop length can be random and/or determined by the control knobs. 
+
