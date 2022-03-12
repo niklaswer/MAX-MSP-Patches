@@ -1,4 +1,4 @@
-#N canvas -8 0 1920 966 12;
+#N canvas -9 -9 1920 976 12;
 #X obj 36 381 adc~;
 #X msg 96 477 start;
 #X msg 198 464 stop;
@@ -192,15 +192,16 @@
 #X msg 1714 642 1;
 #X obj 1714 615 loadbang;
 #X text 1748 571 buffer length;
-#X obj 1447 621 r grain_len @owl C;
 #X obj 747 634 * 440;
 #X text 919 1214 4 Knobs- which parameters should be controlled? A
 - Octave B- detune C - Grain Length D- Level B1 Record;
-#X obj 1425 832 r octave_amount @owl A;
-#X obj 1762 428 r volume @owl D;
-#X obj 1690 861 r detune_amount @owl B;
 #X obj 1798 132 loadbang;
 #X msg 1798 159 0;
+#X obj 1129 992 sin~;
+#X obj 1407 828 r octave_amount @owl A 0 1 0;
+#X obj 1690 861 r detune_amount @owl B 0 1 0;
+#X obj 1762 428 r volume @owl D 0 1 0.7;
+#X obj 1447 621 r grain_len @owl C 0 1 1;
 #X connect 0 0 9 0;
 #X connect 0 1 9 0;
 #X connect 1 0 9 0;
@@ -228,7 +229,7 @@
 #X connect 23 0 14 0;
 #X connect 23 1 24 0;
 #X connect 24 0 62 0;
-#X connect 25 0 178 0;
+#X connect 25 0 177 0;
 #X connect 26 0 27 0;
 #X connect 26 0 40 1;
 #X connect 27 0 39 0;
@@ -296,7 +297,7 @@
 #X connect 80 0 75 1;
 #X connect 81 0 32 0;
 #X connect 81 1 32 1;
-#X connect 82 0 178 0;
+#X connect 82 0 177 0;
 #X connect 84 0 166 0;
 #X connect 85 0 167 0;
 #X connect 86 0 78 0;
@@ -374,10 +375,10 @@
 #X connect 173 0 172 0;
 #X connect 174 0 130 0;
 #X connect 175 0 174 0;
-#X connect 177 0 127 0;
-#X connect 178 0 29 0;
-#X connect 180 0 164 0;
-#X connect 181 0 129 0;
-#X connect 182 0 161 0;
-#X connect 183 0 184 0;
-#X connect 184 0 128 0;
+#X connect 177 0 29 0;
+#X connect 179 0 180 0;
+#X connect 180 0 128 0;
+#X connect 182 0 164 0;
+#X connect 183 0 161 0;
+#X connect 184 0 129 0;
+#X connect 185 0 127 0;
