@@ -57,7 +57,7 @@
 #X obj 493 866 *;
 #X obj 436 1201 bitcru;
 #X obj 1379 560 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4032
--1 -1 0 1;
+-1 -1 12700 1;
 #X text 1174 570 random detune;
 #X floatatom 1142 689 5 0 0 0 - - -;
 #X text 1213 653 detune;
@@ -162,13 +162,13 @@
 #X obj 608 516 r update_len;
 #X obj 507 795 s update_len;
 #X obj 1377 789 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -261234
--1 -1 0 1;
+-1 -1 12700 1;
 #X obj 1680 188 hsl 128 15 -0.5 0.25 0 0 empty empty empty -2 -8 0
 10 -2112 -1 -1 0 1;
 #X obj 1682 593 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -159808
--1 -1 0 1;
+-1 -1 12700 1;
 #X obj 1668 809 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -2112
--1 -1 0 1;
+-1 -1 12700 1;
 #X obj 1728 768 r Length @owl C;
 #X floatatom 1701 690 3 0 0 0 - - -;
 #X floatatom 1671 689 3 0 0 0 - - -;
