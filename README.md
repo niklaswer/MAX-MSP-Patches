@@ -4,9 +4,9 @@ This repository captures self-built Max patches.
 
 ## 1. Granular Synth
 
-# 1. Max patch based on Tutorial by Oliver Thurley (https://www.youtube.com/watch?v=g3nAeDWgf9Y)
+1. Max patch based on Tutorial by Oliver Thurley (https://www.youtube.com/watch?v=g3nAeDWgf9Y)
 
-# 2. stable Pure Data Patch with UI 
+2. stable Pure Data Patch with UI (Architecture based on Tutorial by Andrew Brown)
 
 ## 2. Substractive Synth
 
