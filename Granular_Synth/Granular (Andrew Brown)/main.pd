@@ -1,4 +1,4 @@
-#N canvas -8 0 958 966 12;
+#N canvas -8 -8 1920 997 12;
 #X obj 71 82 bng 50 250 50 0 rec_bang REC RECORD 0 -5 0 10 -257985
 -1 -1;
 #N canvas 0 50 1187 700 (subpatch) 0;
@@ -9,7 +9,7 @@
 0 10 -258113 -1 -1;
 #X obj 125 163 hsl 128 15 0 1 0 0 master MASTER master -2 -8 0 10 -262144
 -1 -1 0 1;
-#X floatatom 215 358 5 40 500 0 grain-duration G-DUR g-dur;
+#X floatatom 215 358 5 10 500 0 grain-duration G-DUR g-dur;
 #X floatatom 216 378 5 0.1 3 0 grain-pitch grain_pitch -;
 #X obj 126 199 hsl 128 15 10 20000 0 0 buffer_len BUFFER_LEN buffer_length
 -2 -8 0 10 -262144 -1 -1 6347 1;
@@ -25,12 +25,12 @@
 -262144 -1 -1 0 1;
 #X floatatom 212 451 5 0 1 0 panning_amount AMOUNT amount;
 #X obj 294 74 hsl 500 300 0 441000 0 0 playhead_pos sample_count empty
--2 -8 0 10 -262144 -1 -1 0 1;
+-2 -8 0 10 -262144 -1 -1 32615 1;
 #X floatatom 213 482 5 1 4 0 random_octave RANDOM_OCTAVE random_octave
 ;
 #X obj 274 614 tgl 30 0 reverse_grain REVERSE_GRAIN Reverse_Grain -50
 -10 0 10 -52451 -1 -1 0 1;
-#N canvas -11 0 1920 976 midi_settings 1;
+#N canvas -11 0 1920 976 midi_settings 0;
 #X obj 691 317 s REC;
 #X obj 682 62 s MASTER;
 #X text 57 18 MIDI & Default SETTINGS;
@@ -125,7 +125,7 @@
 #X msg 888 193 0;
 #X obj 891 38 loadbang;
 #X msg 891 62 0;
-#N canvas 722 124 958 919 keyboard_controls 1;
+#N canvas 722 124 958 919 keyboard_controls 0;
 #X obj 176 328 s GRAIN_PITCH;
 #X obj 38 21 notein;
 #X obj 38 237 mtof;
@@ -215,8 +215,6 @@ release sustain, f 65;
 #X connect 16 2 15 0;
 #X connect 16 3 14 2;
 #X restore 74 94 pd keyboard_controls;
-#X obj 709 564 loadbang;
-#X obj 709 588 s FIXED_POSITION;
 #X connect 4 0 5 0;
 #X connect 5 0 3 0;
 #X connect 6 0 8 0;
@@ -299,7 +297,6 @@ release sustain, f 65;
 #X connect 91 0 62 0;
 #X connect 92 0 93 0;
 #X connect 93 0 64 0;
-#X connect 95 0 96 0;
 #X restore 358 426 pd midi_settings;
 #N canvas 777 26 958 966 main_file 1;
 #X obj 441 29 adc~, f 19;
@@ -428,11 +425,13 @@ release sustain, f 65;
 #X obj 191 535 t b f;
 #X floatatom 314 142 5 0 0 0 - - -;
 #X obj 533 99 t b b;
-#X obj 503 244 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 503 244 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 116 335 audio_switch;
 #X obj 534 72 == 0;
 #X obj 110 510 == 0;
+#X obj 459 194 loadbang;
+#X obj 197 286 loadbang;
 #X connect 0 0 48 1;
 #X connect 0 0 28 0;
 #X connect 1 0 2 0;
@@ -486,6 +485,8 @@ release sustain, f 65;
 #X connect 49 0 46 0;
 #X connect 50 0 41 1;
 #X connect 50 0 43 0;
+#X connect 51 0 47 0;
+#X connect 52 0 48 2;
 #X restore 155 206 pd move_through_buffer;
 #X obj 155 38 r grain_bang;
 #X obj 205 65 r buffer_len;
@@ -575,7 +576,7 @@ release sustain, f 65;
 #X floatatom 213 505 5 0 25 0 freq_mod_frequency FREQ_MOD_FREQ freq_mod_freq
 ;
 #X obj 282 37 r resize_slide;
-#X floatatom 214 529 5 0 20 0 freq_mod_amount FREQ_MOD_AMOUNT freq_mod_amount
+#X floatatom 214 529 5 0 90 0 freq_mod_amount FREQ_MOD_AMOUNT freq_mod_amount
 ;
 #X text 1145 644 feq mod amount also shift up the pitch -> mean changes
 ;
