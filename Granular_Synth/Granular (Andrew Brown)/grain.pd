@@ -1,4 +1,4 @@
-#N canvas -8 -8 1920 997 12;
+#N canvas 49 7 1920 997 12;
 #X obj 42 398 pack f f f;
 #X msg 43 425 \$1 \, \$2 \$3;
 #X obj 43 449 vline~;
@@ -10,9 +10,9 @@
 #X obj 235 337 t b f;
 #X floatatom 42 144 5 0 0 0 - - -;
 #X floatatom 96 249 5 0 0 0 - - -;
-#X obj 42 604 outlet~;
+#X obj 42 692 outlet~;
 #X obj 247 507 tabread~ hanning;
-#X obj 41 577 *~ 0.5;
+#X obj 42 659 *~ 0.5;
 #X floatatom 529 206 5 0 0 0 - - -;
 #X floatatom 561 94 5 0 0 0 - - -;
 #X obj 530 122 t b;
@@ -92,11 +92,14 @@
 #X floatatom 40 76 5 0 0 0 - - -;
 #X floatatom 243 84 5 0 0 0 - - -;
 #X text 257 57 g-speed;
+#X obj 60 575 r bit_depth;
+#X obj 41 629 bitcru;
+#X obj 80 599 r bit_volume;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
-#X connect 4 0 13 0;
+#X connect 4 0 58 0;
 #X connect 5 0 30 0;
 #X connect 6 0 51 0;
 #X connect 7 0 0 2;
@@ -151,3 +154,6 @@
 #X connect 53 0 52 0;
 #X connect 53 1 52 1;
 #X connect 55 0 52 0;
+#X connect 57 0 58 1;
+#X connect 58 0 13 0;
+#X connect 59 0 58 2;
