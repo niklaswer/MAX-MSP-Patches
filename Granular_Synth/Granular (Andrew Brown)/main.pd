@@ -2,17 +2,17 @@
 #X obj 71 82 bng 50 250 50 0 rec_bang REC RECORD 0 -5 0 10 -257985
 -1 -1;
 #N canvas 0 50 1187 700 (subpatch) 0;
-#X array Buffer 441000 float 4;
-#X coords 0 1 440999 -1 500 300 1 0 0;
+#X array Buffer 960000 float 4;
+#X coords 0 1 959999 -1 500 300 1 0 0;
 #X restore 293 74 graph;
 #X obj 134 83 bng 50 250 50 0 stop_audio STOP_AUDIO STOP_AUDIO 0 -5
 0 10 -258113 -1 -1;
 #X obj 125 163 hsl 128 15 0 1 0 0 master MASTER master -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 2000 1;
 #X floatatom 215 358 5 10 600 0 grain-duration G-DUR g-dur;
 #X floatatom 216 378 5 0.1 3 0 grain-pitch grain_pitch -;
 #X obj 126 199 hsl 128 15 10 20000 0 0 buffer_len BUFFER_LEN buffer_length
--2 -8 0 10 -262144 -1 -1 6347 1;
+-2 -8 0 10 -262144 -1 -1 12700 1;
 #X floatatom 216 333 10 0 0 0 buffer_len buffer_len -;
 #X obj 204 85 bng 50 250 50 0 del_buffer DEL_BUFFER DELETE_BUFFER 0
 -5 0 10 -4034 -1 -1;
@@ -20,12 +20,12 @@
 #X floatatom 213 427 5 0 500 0 playhead_speed_interval PLAY_HEAD play_head
 ;
 #X obj 126 261 hsl 128 15 0.1 3 0 0 grain_pitch GRAIN_PITCH grain_pitch
--2 -8 0 10 -262144 -1 -1 7365 1;
+-2 -8 0 10 -262144 -1 -1 3941 1;
 #X obj 126 231 hsl 128 15 0 5000 0 0 jitter JITTER jitter -2 -8 0 10
 -262144 -1 -1 0 1;
 #X floatatom 212 451 5 0 1 0 panning_amount AMOUNT amount;
-#X obj 294 74 hsl 500 300 0 441000 0 0 playhead_pos sample_count empty
--2 -8 0 10 -262144 -1 -1 49900 1;
+#X obj 294 74 hsl 500 300 0 960000 0 0 playhead_pos sample_count empty
+-2 -8 0 10 -262144 -1 -1 16251 1;
 #X floatatom 213 482 5 1 4 0 random_octave RANDOM_OCTAVE random_octave
 ;
 #X obj 280 752 tgl 30 0 reverse_grain REVERSE_GRAIN Reverse_Grain -50
@@ -130,7 +130,7 @@
 #X obj 57 80 spigot;
 #X obj 177 300 spigot;
 #X obj 110 14 tgl 15 0 empty use_keyboard use_midi_keyboard 17 7 0
-10 -262144 -1 -1 1 1;
+10 -262144 -1 -1 0 1;
 #N canvas 832 222 1042 569 Amplitude_Envelope 0;
 #X obj 262 139 * 0.9;
 #X obj 195 110 t f f;
@@ -150,7 +150,7 @@
 #X obj 350 365 metro 100;
 #X obj 350 339 loadbang;
 #X floatatom 355 435 5 0 0 0 - - -;
-#X obj 419 336 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 419 336 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 316 247 velocity attack 0 \, 0.9*velocity decay attack \, 0
 release sustain, f 65;
@@ -193,6 +193,7 @@ release sustain, f 65;
 #X obj 109 37 t f f f f, f 47;
 #X text 26 293 relative to middle C pitch;
 #X obj 38 45 stripnote;
+#X obj 372 67 loadbang;
 #X connect 1 0 18 0;
 #X connect 1 1 18 1;
 #X connect 2 0 3 0;
@@ -214,6 +215,7 @@ release sustain, f 65;
 #X connect 16 3 14 2;
 #X connect 18 0 2 0;
 #X connect 18 1 4 0;
+#X connect 19 0 15 0;
 #X restore 67 45 pd keyboard_controls;
 #X obj 378 281 notein;
 #X obj 378 307 stripnote;
@@ -385,7 +387,7 @@ release sustain, f 65;
 #X connect 132 0 133 0;
 #X connect 133 0 134 0;
 #X restore 358 426 pd midi_settings;
-#N canvas 777 26 958 966 main_file 0;
+#N canvas 31 2 958 966 main_file 0;
 #X obj 441 29 adc~, f 19;
 #X obj 152 497 *~;
 #X obj 150 695 dac~;
@@ -507,7 +509,7 @@ release sustain, f 65;
 #X obj 131 541 spigot;
 #X obj 63 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 107 540 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 107 540 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 191 535 t b f;
 #X floatatom 314 142 5 0 0 0 - - -;
@@ -519,8 +521,8 @@ release sustain, f 65;
 #X obj 110 510 == 0;
 #X obj 459 194 loadbang;
 #X obj 197 286 loadbang;
-#X connect 0 0 48 1;
 #X connect 0 0 28 0;
+#X connect 0 0 48 1;
 #X connect 1 0 2 0;
 #X connect 1 0 13 0;
 #X connect 2 0 10 0;
@@ -664,13 +666,11 @@ release sustain, f 65;
 #X obj 91 755 tgl 30 0 live LIVE Live -30 -10 0 10 -30905 -1 -1 0 1
 ;
 #X obj 180 752 tgl 30 0 reverse_playback REVERSE_PLAYBACK Reverse_Playback
--70 -10 0 10 -185203 -1 -1 0 1;
+-70 -10 0 10 -185203 -1 -1 1 1;
 #X floatatom 213 505 5 0 25 0 freq_mod_frequency FREQ_MOD_FREQ freq_mod_freq
 ;
 #X obj 282 37 r resize_slide;
 #X floatatom 214 529 5 0 90 0 freq_mod_amount FREQ_MOD_AMOUNT freq_mod_amount
-;
-#X text 1074 554 feq mod amount also shift up the pitch -> mean changes
 ;
 #X floatatom 214 559 5 0.1 3 0 playback_speed playback_speed -;
 #X text 1179 430 unterschiedliche Fensterfunktionen evtl. über weight/mittelwert
@@ -710,7 +710,7 @@ grain_pitch_reset -70 -20 0 10 -4032 -1 -1;
 #X obj -129 -731 cnv 15 100 60 empty empty empty 20 12 0 14 -233017
 -66577 0;
 #X obj 489 754 tgl 30 0 use_keyboard USE_KEYBOARD use_midi_keyboard
--50 -10 0 10 -182419 -1 -1 1 1;
+-50 -10 0 10 -182419 -1 -1 0 1;
 #X floatatom 587 747 5 1 200 0 Attack ATTACK attack;
 #X floatatom 588 790 5 200 1000 0 Sustain SUSTAIN sustain;
 #X floatatom 588 815 5 1000 1500 0 Relase RELEASE release;
@@ -724,8 +724,11 @@ grain_pitch_reset -70 -20 0 10 -4032 -1 -1;
 #X obj 606 592 hsl 128 15 0 1 0 0 bit_volume BIT_VOLUME bit_volume
 -2 -8 0 10 -262144 -1 -1 12700 1;
 #X obj 608 384 r FILENAME;
+#X text 1074 554 feq mod amount also shift up the pitch -> mean changes
+1 presss reverse_playback to get slider movign 2 press revesrse grain
+to get sound 3 press fixed_position;
 #X connect 22 0 14 0;
-#X connect 33 0 32 0;
-#X connect 34 0 32 0;
-#X connect 47 0 34 0;
+#X connect 32 0 31 0;
+#X connect 33 0 31 0;
+#X connect 46 0 33 0;
 #X coords 0 0 2 1 0 0 0;

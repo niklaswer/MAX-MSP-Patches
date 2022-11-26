@@ -12,6 +12,7 @@
 #X obj 190 146 == 0;
 #X text 100 21 switches audio signals;
 #X obj 105 258 outlet~;
+#X obj 228 150 loadbang;
 #X connect 0 0 6 0;
 #X connect 1 0 4 0;
 #X connect 2 0 8 0;
@@ -22,3 +23,4 @@
 #X connect 6 0 7 0;
 #X connect 7 0 10 0;
 #X connect 8 0 3 0;
+#X connect 11 0 3 0;
