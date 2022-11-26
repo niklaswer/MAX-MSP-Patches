@@ -95,6 +95,7 @@
 #X obj 60 575 r bit_depth;
 #X obj 41 629 bitcru;
 #X obj 80 599 r bit_volume;
+#X obj 398 190 loadbang;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -157,3 +158,4 @@
 #X connect 57 0 58 1;
 #X connect 58 0 13 0;
 #X connect 59 0 58 2;
+#X connect 60 0 29 0;
