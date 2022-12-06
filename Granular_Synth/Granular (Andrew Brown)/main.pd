@@ -2,17 +2,17 @@
 #X obj 71 82 bng 50 250 50 0 rec_bang REC RECORD 0 -5 0 10 -257985
 -1 -1;
 #N canvas 0 50 1187 700 (subpatch) 0;
-#X array Buffer 139269 float 4;
-#X coords 0 1 139268 -1 500 300 1 0 0;
+#X array Buffer 441000 float 4;
+#X coords 0 1 440999 -1 500 300 1 0 0;
 #X restore 293 74 graph;
 #X obj 134 83 bng 50 250 50 0 stop_audio STOP_AUDIO STOP_AUDIO 0 -5
 0 10 -258113 -1 -1;
 #X obj 125 163 hsl 128 15 0 1 0 0 master MASTER master -2 -8 0 10 -262144
--1 -1 12700 1;
+-1 -1 0 1;
 #X floatatom 209 397 5 10 600 0 grain-duration G-DUR g-dur;
 #X floatatom 210 417 5 0.1 3 0 grain-pitch grain_pitch -;
 #X obj 126 199 hsl 128 15 10 20000 0 0 buffer_len BUFFER_LEN buffer_length
--2 -8 0 10 -262144 -1 -1 2047 1;
+-2 -8 0 10 -262144 -1 -1 6347 1;
 #X floatatom 210 372 10 0 0 0 buffer_len buffer_len -;
 #X obj 204 85 bng 50 250 50 0 del_buffer DEL_BUFFER DELETE_BUFFER 0
 -5 0 10 -4034 -1 -1;
@@ -24,8 +24,8 @@ play_head;
 #X obj 126 231 hsl 128 15 0 3000 0 0 jitter JITTER jitter -2 -8 0 10
 -262144 -1 -1 0 1;
 #X floatatom 206 490 5 0 1 0 panning_amount AMOUNT amount;
-#X obj 294 74 hsl 500 300 0 139269 0 0 playhead_pos sample_count empty
--2 -8 0 10 -262144 -1 -1 4241 1;
+#X obj 294 74 hsl 500 300 0 441000 0 0 playhead_pos sample_count empty
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X floatatom 207 521 5 1 4 0 random_octave RANDOM_OCTAVE random_octave
 ;
 #X obj 280 752 tgl 30 0 reverse_grain REVERSE_GRAIN Reverse_Grain -50
@@ -399,10 +399,10 @@ release sustain, f 65;
 #N canvas 991 49 958 966 main_file 1;
 #X obj 441 29 adc~, f 19;
 #X obj 152 497 *~;
-#X obj 150 695 dac~;
+#X obj 150 655 dac~;
 #X obj 41 80 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
-#X obj 169 475 r master;
+#X obj 320 456 r master;
 #X obj 605 300 r del_buffer;
 #X msg 605 326 \; Buffer const 0;
 #X obj 607 222 r stop_audio;
@@ -416,11 +416,8 @@ release sustain, f 65;
 #X obj 151 534 clip~ -1 1;
 #X obj 41 100 metro 1000;
 #X obj 59 78 r play_head;
-#X obj 151 609 random_panning;
 #X obj 41 124 s grain_bang;
-#X obj 214 558 r grain_bang;
-#X obj 245 588 r amount;
-#N canvas 952 0 958 966 record_to_buffer 1;
+#N canvas 952 0 958 966 record_to_buffer 0;
 #X msg 276 359 start;
 #X msg 409 351 stop;
 #X obj 244 57 r rec_bang;
@@ -540,14 +537,14 @@ release sustain, f 65;
 #X obj 23 459 r playhead_pos;
 #X obj 36 482 r fixed_position;
 #X obj 114 609 spigot;
-#X obj 63 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 63 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 95 550 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 189 535 t b f;
 #X floatatom 314 142 5 0 0 0 - - -;
 #X obj 533 99 t b b;
-#X obj 503 244 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 503 244 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 116 335 audio_switch;
 #X obj 534 72 == 0;
@@ -617,13 +614,12 @@ release sustain, f 65;
 #X obj 192 62 r buffer_len;
 #X obj 230 87 r jitter;
 #X obj 268 114 r reverse_playback;
-#X obj 507 456 r buffer_len;
-#X msg 437 517 range 0 \$1;
-#X obj 507 481 * 44.1;
-#X obj 437 544 s resize_slide;
-#X msg 552 517 \; Buffer resize \$1;
-#X obj 552 555 print;
-#X obj 154 360 clone grain 200;
+#X obj 596 444 r buffer_len;
+#X msg 526 505 range 0 \$1;
+#X obj 596 469 * 44.1;
+#X obj 526 532 s resize_slide;
+#X msg 641 505 \; Buffer resize \$1;
+#X obj 641 543 print;
 #X obj 306 172 r playback_speed;
 #X msg 8 215 1;
 #X obj 8 192 r playback_reset;
@@ -640,64 +636,69 @@ release sustain, f 65;
 #X obj 8 239 s PLAYBACK_SPEED;
 #X obj 609 157 / 44.1;
 #X obj 609 181 s BUFFER_LEN;
-#X obj 52 654 throw~ L;
-#X obj 258 666 throw~ R;
+#X obj 81 584 throw~ L;
+#X obj 269 583 throw~ R;
 #X obj 153 452 *~;
-#X obj 172 395 catch~ amp_envelope;
+#X obj 319 413 catch~ amp_envelope;
 #X msg 9 390 0.5;
 #X obj 9 366 r octave_down;
 #X obj 9 413 s GRAIN_PITCH;
-#X connect 0 0 21 0;
-#X connect 0 1 21 1;
+#X obj 256 449 *~;
+#X obj 255 502 *~;
+#X obj 255 534 clip~ -1 1;
+#X obj 154 367 clone grain 200;
+#X connect 0 0 18 0;
+#X connect 0 1 18 1;
 #X connect 1 0 14 0;
 #X connect 3 0 15 0;
+#X connect 4 0 55 1;
 #X connect 4 0 1 1;
 #X connect 5 0 6 0;
 #X connect 7 0 8 0;
 #X connect 9 0 10 0;
 #X connect 10 0 11 0;
 #X connect 11 0 12 0;
-#X connect 12 0 49 0;
+#X connect 12 0 45 0;
 #X connect 13 0 9 0;
-#X connect 14 0 17 0;
-#X connect 14 0 17 1;
-#X connect 15 0 18 0;
+#X connect 14 0 47 0;
+#X connect 14 0 2 0;
+#X connect 15 0 17 0;
 #X connect 16 0 15 1;
-#X connect 17 0 2 0;
-#X connect 17 0 51 0;
-#X connect 17 1 2 1;
-#X connect 17 1 52 0;
-#X connect 19 0 17 2;
-#X connect 20 0 17 3;
-#X connect 22 0 3 0;
-#X connect 23 0 41 0;
-#X connect 24 0 23 0;
-#X connect 25 0 23 1;
-#X connect 26 0 23 2;
-#X connect 27 0 23 3;
-#X connect 28 0 30 0;
-#X connect 29 0 31 0;
-#X connect 30 0 29 0;
-#X connect 30 0 32 0;
-#X connect 32 0 33 0;
-#X connect 34 0 53 0;
-#X connect 35 0 23 4;
-#X connect 36 0 48 0;
-#X connect 37 0 36 0;
-#X connect 38 0 41 1;
-#X connect 39 0 38 0;
-#X connect 40 0 41 2;
-#X connect 41 0 42 0;
-#X connect 42 0 43 0;
-#X connect 43 0 34 0;
-#X connect 44 0 45 0;
-#X connect 45 0 47 0;
-#X connect 46 0 40 0;
-#X connect 49 0 50 0;
-#X connect 53 0 1 0;
-#X connect 54 0 53 1;
-#X connect 55 0 57 0;
-#X connect 56 0 55 0;
+#X connect 19 0 3 0;
+#X connect 20 0 37 0;
+#X connect 21 0 20 0;
+#X connect 22 0 20 1;
+#X connect 23 0 20 2;
+#X connect 24 0 20 3;
+#X connect 25 0 27 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 0;
+#X connect 27 0 29 0;
+#X connect 29 0 30 0;
+#X connect 31 0 20 4;
+#X connect 32 0 44 0;
+#X connect 33 0 32 0;
+#X connect 34 0 37 1;
+#X connect 35 0 34 0;
+#X connect 36 0 37 2;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 39 0 57 0;
+#X connect 40 0 41 0;
+#X connect 41 0 43 0;
+#X connect 42 0 36 0;
+#X connect 45 0 46 0;
+#X connect 49 0 1 0;
+#X connect 50 0 49 1;
+#X connect 50 0 54 1;
+#X connect 51 0 53 0;
+#X connect 52 0 51 0;
+#X connect 54 0 55 0;
+#X connect 55 0 56 0;
+#X connect 56 0 48 0;
+#X connect 56 0 2 1;
+#X connect 57 0 49 0;
+#X connect 57 1 54 0;
 #X restore 486 428 pd main_file;
 #X obj 91 755 tgl 30 0 live LIVE Live -30 -10 0 10 -30905 -1 -1 0 1
 ;
@@ -740,7 +741,7 @@ grain_pitch_reset -70 -20 0 10 -4032 -1 -1;
 #X obj 618 446 tgl 50 0 save SAVE Save 0 -10 0 10 -260097 -1 -1 0 1
 ;
 #X obj 370 754 tgl 30 0 fixed_position FIXED_POSITION Fixed_position
--50 -10 0 10 -257985 -1 -1 1 1;
+-50 -10 0 10 -257985 -1 -1 0 1;
 #X obj -129 -731 cnv 15 100 60 empty empty empty 20 12 0 14 -233017
 -66577 0;
 #X obj 489 754 tgl 30 0 use_keyboard USE_KEYBOARD use_midi_keyboard
@@ -766,7 +767,7 @@ grain_pitch_reset -70 -20 0 10 -4032 -1 -1;
 #X obj 879 456 s PLAY_HEAD;
 #X obj 911 434 s G-DUR;
 #X obj 127 331 hsl 128 15 0 0.9 0 0 feedback FEEDBACK feedback_(only_if_live)
--2 -8 0 10 -262144 -1 -1 9600 1;
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X floatatom 208 623 5 0 0.9 0 feedback feedback -;
 #X connect 22 0 14 0;
 #X connect 31 0 30 0;

@@ -10,9 +10,9 @@
 #X obj 235 337 t b f;
 #X floatatom 42 144 5 0 0 0 - - -;
 #X floatatom 96 249 5 0 0 0 - - -;
-#X obj 42 692 outlet~;
+#X obj 42 764 outlet~;
 #X obj 247 507 tabread~ hanning;
-#X obj 42 659 *~ 0.5;
+#X obj 41 727 *~ 0.5;
 #X floatatom 529 206 5 0 0 0 - - -;
 #X floatatom 561 94 5 0 0 0 - - -;
 #X obj 530 122 t b;
@@ -96,6 +96,11 @@
 #X obj 41 629 bitcru;
 #X obj 80 599 r bit_volume;
 #X obj 398 190 loadbang;
+#X obj 42 684 random_panning;
+#X obj 105 637 r grain_bang;
+#X obj 137 661 r amount;
+#X obj 137 769 outlet~;
+#X obj 138 726 *~ 0.5;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -156,6 +161,12 @@
 #X connect 53 1 52 1;
 #X connect 55 0 52 0;
 #X connect 57 0 58 1;
-#X connect 58 0 13 0;
+#X connect 58 0 61 1;
+#X connect 58 0 61 0;
 #X connect 59 0 58 2;
 #X connect 60 0 29 0;
+#X connect 61 0 13 0;
+#X connect 61 1 65 0;
+#X connect 62 0 61 2;
+#X connect 63 0 61 3;
+#X connect 65 0 64 0;
