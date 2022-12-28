@@ -2,17 +2,17 @@
 #X obj 71 82 bng 50 250 50 0 rec_bang REC RECORD 0 -5 0 10 -257985
 -1 -1;
 #N canvas 0 50 1187 700 (subpatch) 0;
-#X array Buffer 257273 float 4;
-#X coords 0 1 257272 -1 500 300 1 0 0;
+#X array Buffer 441000 float 4;
+#X coords 0 1 440999 -1 500 300 1 0 0;
 #X restore 293 74 graph;
 #X obj 134 83 bng 50 250 50 0 stop_audio STOP_AUDIO STOP_AUDIO 0 -5
 0 10 -258113 -1 -1;
 #X obj 125 163 hsl 128 15 0 1 0 0 master MASTER master -2 -8 0 10 -262144
--1 -1 11200 1;
+-1 -1 0 1;
 #X floatatom 209 397 5 10 600 0 grain-duration G-DUR g-dur;
 #X floatatom 210 417 5 0.1 3 0 grain-pitch grain_pitch -;
 #X obj 126 199 hsl 128 15 10 20000 0 0 buffer_len BUFFER_LEN buffer_length
--2 -8 0 10 -262144 -1 -1 3747 1;
+-2 -8 0 10 -262144 -1 -1 6347 1;
 #X floatatom 210 372 10 0 0 0 buffer_len buffer_len -;
 #X obj 204 85 bng 50 250 50 0 del_buffer DEL_BUFFER DELETE_BUFFER 0
 -5 0 10 -4034 -1 -1;
@@ -20,16 +20,16 @@
 #X floatatom 207 466 5 0 20000 0 playhead_speed_interval PLAY_HEAD
 play_head;
 #X obj 126 261 hsl 128 15 0.1 3 0 0 grain_pitch GRAIN_PITCH grain_pitch
--2 -8 0 10 -262144 -1 -1 2321 1;
+-2 -8 0 10 -262144 -1 -1 3941 1;
 #X obj 126 231 hsl 128 15 0 3000 0 0 jitter JITTER jitter -2 -8 0 10
--262144 -1 -1 1700 1;
+-262144 -1 -1 0 1;
 #X floatatom 206 490 5 0 1 0 panning_amount AMOUNT amount;
-#X obj 294 74 hsl 500 300 0 257273 0 0 playhead_pos sample_count empty
--2 -8 0 10 -262144 -1 -1 40451 1;
+#X obj 294 74 hsl 500 300 0 441000 0 0 playhead_pos sample_count empty
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X floatatom 207 521 5 1 4 0 random_octave RANDOM_OCTAVE random_octave
 ;
 #X obj 280 752 tgl 30 0 reverse_grain REVERSE_GRAIN Reverse_Grain -50
--10 0 10 -52451 -1 -1 1 1;
+-10 0 10 -52451 -1 -1 0 1;
 #N canvas -9 -9 1920 976 midi_settings 0;
 #X obj 40 238 s REC;
 #X obj 682 62 s MASTER;
@@ -123,15 +123,15 @@ play_head;
 #X obj 891 38 loadbang;
 #X msg 891 62 0;
 #N canvas 53 16 958 919 keyboard_controls 0;
-#X obj 238 506 s GRAIN_PITCH;
+#X obj 266 562 s GRAIN_PITCH;
 #X obj 245 102 notein;
 #X obj 100 415 mtof;
 #X obj 100 439 / 261.63;
 #X obj 119 258 spigot;
 #X obj 239 478 spigot;
 #X obj 172 192 tgl 15 0 empty use_keyboard use_midi_keyboard 17 7 0
-10 -262144 -1 -1 1 1;
-#N canvas 480 0 1348 976 Amplitude_Envelope 1;
+10 -262144 -1 -1 0 1;
+#N canvas 480 0 1348 976 Amplitude_Envelope 0;
 #X obj 267 145 * 0.9;
 #X obj 201 112 t f f;
 #X floatatom 378 38 5 0 0 0 Sustain - -;
@@ -149,7 +149,7 @@ play_head;
 #X obj 350 394 snapshot~;
 #X obj 350 339 loadbang;
 #X floatatom 350 418 5 0 0 0 - - -;
-#X obj 332 340 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 332 340 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 316 247 velocity attack 0 \, 0.9*velocity decay attack \, 0
 release sustain, f 65;
@@ -197,7 +197,7 @@ release sustain, f 65;
 #X obj 416 412 audio_switch;
 #X msg 454 297 1;
 #X obj 171 215 t f f f f, f 47;
-#X text 88 471 relative to middle C pitch;
+#X text 30 478 relative to middle C pitch;
 #X obj 100 223 stripnote;
 #X obj 434 245 loadbang;
 #X obj 85 98 random_interval_gen;
@@ -209,6 +209,38 @@ release sustain, f 65;
 #X msg 244 52 60;
 #X obj 99 21 loadbang;
 #X msg 34 50 600;
+#N canvas 571 259 450 300 chord_arpegiator 0;
+#X obj 27 11 loadbang;
+#X obj 27 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 27 94 metro;
+#X floatatom 59 68 5 0 0 0 - - -;
+#X msg 59 40 600;
+#X obj 27 148 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144 -1
+-1 1;
+#X obj 27 173 sel 0 1 2 3;
+#X msg 28 216 60;
+#X msg 70 216 62;
+#X msg 117 218 68;
+#X msg 157 219 71;
+#X obj 32 260 outlet;
+#X obj 27 118 random 4;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 6 2 9 0;
+#X connect 6 3 10 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 12 0 5 0;
+#X restore 391 53 pd chord_arpegiator;
 #X connect 1 0 18 0;
 #X connect 1 1 18 1;
 #X connect 2 0 3 0;
@@ -682,6 +714,7 @@ release sustain, f 65;
 #X obj 83 116 +;
 #X obj 173 77 t b f;
 #X floatatom 83 140 5 0 0 0 - - -;
+#X obj 421 632 adc~, f 19;
 #X connect 0 0 18 0;
 #X connect 0 1 18 1;
 #X connect 1 0 14 0;
@@ -741,8 +774,10 @@ release sustain, f 65;
 #X connect 62 0 61 0;
 #X connect 62 1 61 1;
 #X connect 63 0 15 1;
+#X connect 64 0 47 0;
+#X connect 64 1 48 0;
 #X restore 486 428 pd main_file;
-#X obj 91 755 tgl 30 0 live LIVE Live -30 -10 0 10 -30905 -1 -1 1 1
+#X obj 91 755 tgl 30 0 live LIVE Live -30 -10 0 10 -30905 -1 -1 0 1
 ;
 #X obj 180 752 tgl 30 0 reverse_playback REVERSE_PLAYBACK Reverse_Playback
 -70 -10 0 10 -185203 -1 -1 0 1;
@@ -756,7 +791,7 @@ release sustain, f 65;
 regeln;
 #X text 1234 385 random intervallänge;
 #X obj 128 294 hsl 128 15 0.1 3 0 0 playback_speed PLAYBACK_SPEED playback_speed
--2 -8 0 10 -262144 -1 -1 0 1;
+-2 -8 0 10 -262144 -1 -1 3941 1;
 #X obj 277 696 bng 30 250 50 0 playback_reset PLAYBACK_RESET playback_speed_reset
 -70 -10 0 10 -4034 -1 -1;
 #X obj 371 694 bng 30 250 50 0 grain_pitch_reset GRAIN_PITCH_RESET
@@ -787,7 +822,7 @@ grain_pitch_reset -70 -20 0 10 -4032 -1 -1;
 #X obj -129 -731 cnv 15 100 60 empty empty empty 20 12 0 14 -233017
 -66577 0;
 #X obj 489 754 tgl 30 0 use_keyboard USE_KEYBOARD use_midi_keyboard
--50 -10 0 10 -182419 -1 -1 1 1;
+-50 -10 0 10 -182419 -1 -1 0 1;
 #X floatatom 587 747 5 1 200 0 Attack ATTACK attack;
 #X floatatom 588 790 5 200 1000 0 Sustain SUSTAIN sustain;
 #X floatatom 588 815 5 0 1500 0 Release RELEASE release;
@@ -809,7 +844,7 @@ grain_pitch_reset -70 -20 0 10 -4032 -1 -1;
 #X obj 879 456 s PLAY_HEAD;
 #X obj 911 434 s G-DUR;
 #X obj 127 331 hsl 128 15 0 0.9 0 0 feedback FEEDBACK feedback_(only_if_live)
--2 -8 0 10 -262144 -1 -1 4900 1;
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X floatatom 208 623 5 0 0.9 0 feedback feedback -;
 #X floatatom 210 645 5 0 300 0 add_random_playhead PLAYHEAD_RAND playhead_rand
 ;
