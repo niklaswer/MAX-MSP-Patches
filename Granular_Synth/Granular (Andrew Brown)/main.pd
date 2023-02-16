@@ -20,23 +20,23 @@
 #X floatatom 207 466 5 0 20000 0 playhead_speed_interval PLAY_HEAD
 play_head;
 #X obj 126 261 hsl 128 15 0.1 3 0 0 grain_pitch GRAIN_PITCH grain_pitch
--2 -8 0 10 -262144 -1 -1 1752 1;
+-2 -8 0 10 -262144 -1 -1 657 1;
 #X obj 126 231 hsl 128 15 0 3000 0 0 jitter JITTER jitter -2 -8 0 10
--262144 -1 -1 7000 1;
+-262144 -1 -1 0 1;
 #X floatatom 206 490 5 0 1 0 panning_amount AMOUNT amount;
 #X obj 294 74 hsl 500 300 0 1.2366e+006 0 0 playhead_pos sample_count
-empty -2 -8 0 10 -262144 -1 -1 40370 1;
+empty -2 -8 0 10 -262144 -1 -1 13120 1;
 #X floatatom 207 521 5 1 4 0 random_octave RANDOM_OCTAVE random_octave
 ;
 #X obj 286 802 tgl 30 0 reverse_grain REVERSE_GRAIN Reverse_Grain -50
 -10 0 10 -52451 -1 -1 0 1;
-#N canvas 442 5 1463 966 midi_settings 1;
+#N canvas 442 5 1463 966 midi_settings 0;
 #X obj 40 238 s REC;
 #X obj 682 62 s MASTER;
 #X text 57 18 MIDI & Default SETTINGS;
-#X obj 654 190 s BUFFER_LEN;
-#X obj 713 137 loadbang;
-#X msg 713 161 10000;
+#X obj 1278 144 s BUFFER_LEN;
+#X obj 1337 91 loadbang;
+#X msg 1337 115 10000;
 #X obj 944 473 loadbang;
 #X msg 944 497 70;
 #X obj 438 51 loadbang;
@@ -49,9 +49,9 @@ empty -2 -8 0 10 -262144 -1 -1 40370 1;
 #X obj 40 185 stripnote;
 #X obj 682 38 / 127;
 #X obj 682 14 ctlin 62;
-#X obj 652 112 ctlin 16;
-#X obj 654 137 / 127;
-#X obj 654 161 * 15000;
+#X obj 1276 66 ctlin 16;
+#X obj 1278 91 / 127;
+#X obj 1278 115 * 15000;
 #X obj 40 209 sel 1;
 #X obj 667 393 notein;
 #X obj 667 419 stripnote;
@@ -213,7 +213,7 @@ release sustain, f 65;
 #X floatatom 59 68 5 0 0 0 - - -;
 #X msg 59 40 600;
 #X obj 27 148 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+-1 2;
 #X obj 27 173 sel 0 1 2 3;
 #X msg 28 216 60;
 #X msg 70 216 62;
@@ -342,6 +342,10 @@ release sustain, f 65;
 #X obj 1104 73 * 100;
 #X obj 1104 101 s RAND_DETUNE;
 #X obj 1104 25 ctlin 25;
+#X obj 656 167 notein;
+#X obj 656 193 stripnote;
+#X obj 655 250 s OCTAVE_UP;
+#X obj 656 217 sel 16;
 #X connect 4 0 5 0;
 #X connect 5 0 3 0;
 #X connect 6 0 7 0;
@@ -478,6 +482,10 @@ release sustain, f 65;
 #X connect 148 0 150 0;
 #X connect 149 0 150 0;
 #X connect 151 0 146 0;
+#X connect 152 0 153 0;
+#X connect 152 1 153 1;
+#X connect 153 0 155 0;
+#X connect 155 0 154 0;
 #X restore 358 426 pd midi_settings;
 #N canvas 952 0 958 966 main_file 1;
 #X obj 441 29 adc~, f 19;
@@ -725,7 +733,7 @@ release sustain, f 65;
 #X obj 362 686 catch~ amp_envelope;
 #X msg 21 532 0.5;
 #X obj 21 508 r octave_down;
-#X obj 21 555 s GRAIN_PITCH;
+#X obj 21 595 s GRAIN_PITCH;
 #X obj 299 722 *~;
 #X obj 298 775 *~;
 #X obj 298 807 clip~ -1 1;
@@ -831,6 +839,13 @@ release sustain, f 65;
 #X obj 481 485 r freq_mod_amount;
 #X floatatom 391 555 5 0 0 0 - - -;
 #X obj 397 405 r rand_detune;
+#X obj 73 533 r grain_pitch;
+#X obj 21 565 *;
+#X obj 22 709 s GRAIN_PITCH;
+#X obj 74 647 r grain_pitch;
+#X obj 22 679 *;
+#X obj 22 622 r octave_up;
+#X msg 22 646 2;
 #X connect 0 0 18 0;
 #X connect 0 1 18 1;
 #X connect 1 0 14 0;
@@ -876,7 +891,7 @@ release sustain, f 65;
 #X connect 49 0 1 0;
 #X connect 50 0 49 1;
 #X connect 50 0 54 1;
-#X connect 51 0 53 0;
+#X connect 51 0 73 0;
 #X connect 52 0 51 0;
 #X connect 54 0 55 0;
 #X connect 55 0 56 0;
@@ -900,6 +915,12 @@ release sustain, f 65;
 #X connect 68 0 66 4;
 #X connect 69 0 66 5;
 #X connect 71 0 66 2;
+#X connect 72 0 73 1;
+#X connect 73 0 53 0;
+#X connect 75 0 76 1;
+#X connect 76 0 74 0;
+#X connect 77 0 78 0;
+#X connect 78 0 76 0;
 #X restore 486 428 pd main_file;
 #X obj 97 805 tgl 30 0 live LIVE Live -30 -10 0 10 -30905 -1 -1 0 1
 ;
@@ -914,7 +935,7 @@ release sustain, f 65;
 #X text 1179 430 unterschiedliche Fensterfunktionen evtl. über weight/mittelwert
 regeln;
 #X obj 128 294 hsl 128 15 0.1 3 0 0 playback_speed PLAYBACK_SPEED playback_speed
--2 -8 0 10 -262144 -1 -1 4200 1;
+-2 -8 0 10 -262144 -1 -1 5541 1;
 #X obj 283 746 bng 30 250 50 0 playback_reset PLAYBACK_RESET playback_speed_reset
 -70 -10 0 10 -4034 -1 -1;
 #X obj 377 744 bng 30 250 50 0 grain_pitch_reset GRAIN_PITCH_RESET
@@ -975,6 +996,8 @@ grain_pitch_reset -70 -20 0 10 -4032 -1 -1;
 5 hz?;
 #X floatatom 210 672 5 0 300 0 random_detune RAND_DETUNE rand_detune
 ;
+#X obj 595 742 bng 30 250 50 0 octave_up OCTAVE_up octave_up -50 -10
+0 10 -108390 -1 -1;
 #X connect 22 0 14 0;
 #X connect 30 0 29 0;
 #X connect 43 0 44 0;
