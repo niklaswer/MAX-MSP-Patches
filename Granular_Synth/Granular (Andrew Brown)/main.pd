@@ -1,32 +1,32 @@
 #N canvas -9 -9 1920 976 12;
-#X obj -304 -336 bng 50 250 50 0 rec_bang REC RECORD 0 -5 0 10 -257985
+#X obj 218 199 bng 50 250 50 0 rec_bang REC RECORD 0 -5 0 10 -257985
 -1 -1;
 #N canvas 0 50 1187 700 (subpatch) 0;
-#X array Buffer 344466 float 4;
-#X coords 0 1 344465 -1 500 200 1 0 0;
-#X restore -71 -329 graph;
-#X obj -253 -269 hsl 128 15 0 1 0 0 master MASTER master -2 -8 0 10
--262144 -1 -1 16600 1;
-#X floatatom -174 -58 5 10 1000 0 grain-duration G-DUR g-dur;
-#X floatatom -173 -38 5 0.1 3 0 grain-pitch grain_pitch -;
-#X obj -252 -238 hsl 128 15 10 8000 0 0 buffer_len BUFFER_LEN buffer_length
--2 -8 0 10 -262144 -1 -1 24800 1;
-#X floatatom -173 -83 10 0 0 0 buffer_len buffer_len -;
-#X obj -171 -333 bng 50 250 50 0 del_buffer DEL_BUFFER DELETE_BUFFER
+#X array Buffer 1.2366e+006 float 4;
+#X coords 0 1 1.2366e+006 -1 500 200 1 0 0;
+#X restore 451 206 graph;
+#X obj 269 266 hsl 128 15 0 1 0 0 master MASTER master -2 -8 0 10 -262144
+-1 -1 25400 1;
+#X floatatom 348 477 5 10 1000 0 grain-duration G-DUR g-dur;
+#X floatatom 349 497 5 0.1 3 0 grain-pitch grain_pitch -;
+#X obj 270 297 hsl 128 15 10 8000 0 0 buffer_len BUFFER_LEN buffer_length
+-2 -8 0 10 -262144 -1 -1 25400 1;
+#X floatatom 349 452 10 0 0 0 buffer_len buffer_len -;
+#X obj 351 202 bng 50 250 50 0 del_buffer DEL_BUFFER DELETE_BUFFER
 0 -5 0 10 -4034 -1 -1;
-#X floatatom -174 -15 5 0 10000 0 jitter jitter -;
-#X floatatom -176 11 5 0 20000 0 playhead_speed_interval PLAY_HEAD
+#X floatatom 348 520 5 0 10000 0 jitter jitter -;
+#X floatatom 346 546 5 0 20000 0 playhead_speed_interval PLAY_HEAD
 play_head;
-#X obj -252 -176 hsl 128 15 0.1 3 0 0 grain_pitch GRAIN_PITCH grain_pitch
--2 -8 0 10 -262144 -1 -1 7326 1;
-#X obj -253 -207 hsl 128 15 0 3000 0 0 jitter JITTER jitter -2 -8 0
-10 -262144 -1 -1 11400 1;
-#X floatatom -177 35 5 0 1 0 panning_amount AMOUNT amount;
-#X obj -70 -329 hsl 500 200 0 344466 0 0 playhead_pos sample_count
-empty -2 -8 0 10 -262144 -1 -1 94806 1;
-#X floatatom -176 66 5 1 4 0 random_octave RANDOM_OCTAVE random_octave
+#X obj 270 359 hsl 128 15 0.1 3 0 0 grain_pitch GRAIN_PITCH grain_pitch
+-2 -8 0 10 -262144 -1 -1 24706 1;
+#X obj 269 328 hsl 128 15 0 3000 0 0 jitter JITTER jitter -2 -8 0 10
+-262144 -1 -1 0 1;
+#X floatatom 345 570 5 0 1 0 panning_amount AMOUNT amount;
+#X obj 452 206 hsl 500 200 0 1.2366e+006 0 0 playhead_pos sample_count
+empty -2 -8 0 10 -262144 -1 -1 39150 1;
+#X floatatom 346 601 5 1 4 0 random_octave RANDOM_OCTAVE random_octave
 ;
-#X obj 181 79 tgl 30 0 reverse_grain REVERSE_GRAIN Reverse_Grain -50
+#X obj 703 614 tgl 30 0 reverse_grain REVERSE_GRAIN Reverse_Grain -50
 -10 0 10 -52451 -1 -1 0 1;
 #N canvas 442 5 1463 966 midi_settings 0;
 #X obj 40 238 s REC;
@@ -333,7 +333,7 @@ empty -2 -8 0 10 -262144 -1 -1 94806 1;
 #X connect 156 0 3 0;
 #X connect 157 0 3 0;
 #X connect 158 0 153 0;
-#X restore 599 -167 pd midi_settings;
+#X restore 1121 368 pd midi_settings;
 #N canvas 952 0 958 966 main_file 1;
 #X obj 441 29 adc~, f 19;
 #X obj 196 687 *~;
@@ -475,14 +475,14 @@ empty -2 -8 0 10 -262144 -1 -1 94806 1;
 #X obj 23 459 r playhead_pos;
 #X obj 36 482 r fixed_position;
 #X obj 114 609 spigot;
-#X obj 63 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 63 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 95 550 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 95 550 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 189 535 t b f;
 #X floatatom 307 141 5 0 0 0 - - -;
 #X obj 533 99 t b b;
-#X obj 503 244 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 503 244 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 116 335 audio_switch;
 #X obj 534 72 == 0;
@@ -873,25 +873,25 @@ empty -2 -8 0 10 -262144 -1 -1 94806 1;
 #X connect 85 0 43 0;
 #X connect 93 0 1 0;
 #X connect 93 1 49 0;
-#X restore 597 -142 pd main_file;
-#X obj -8 82 tgl 30 0 live LIVE Live -30 -10 0 10 -30905 -1 -1 0 1
-;
-#X obj 81 79 tgl 30 0 reverse_playback REVERSE_PLAYBACK Reverse_Playback
+#X restore 1119 393 pd main_file;
+#X obj 514 617 tgl 30 0 live LIVE Live -30 -10 0 10 -30905 -1 -1 0
+1;
+#X obj 603 614 tgl 30 0 reverse_playback REVERSE_PLAYBACK Reverse_Playback
 -70 -10 0 10 -185203 -1 -1 0 1;
-#X floatatom 49 -113 5 0 25 0 freq_mod_frequency FREQ_MOD_FREQ freq_mod_freq
+#X floatatom 571 422 5 0 25 0 freq_mod_frequency FREQ_MOD_FREQ freq_mod_freq
 ;
-#X obj -82 -366 r resize_slide;
-#X floatatom 50 -89 5 0 90 0 freq_mod_amount FREQ_MOD_AMOUNT freq_mod_amount
+#X obj 440 169 r resize_slide;
+#X floatatom 572 446 5 0 90 0 freq_mod_amount FREQ_MOD_AMOUNT freq_mod_amount
 ;
-#X floatatom 51 -66 5 0.1 3 0 playback_speed playback_speed -;
-#X text 832 86 unterschiedliche Fensterfunktionen evtl. über weight/mittelwert
+#X floatatom 573 469 5 0.1 3 0 playback_speed playback_speed -;
+#X text 1354 621 unterschiedliche Fensterfunktionen evtl. über weight/mittelwert
 regeln;
-#X obj -252 -145 hsl 128 15 0.1 3 0 0 playback_speed PLAYBACK_SPEED
-playback_speed -2 -8 0 10 -262144 -1 -1 3396 1;
-#X obj 179 26 bng 30 250 50 0 playback_reset PLAYBACK_RESET playback_speed_reset
+#X obj 270 390 hsl 128 15 0.1 3 0 0 playback_speed PLAYBACK_SPEED playback_speed
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X obj 701 561 bng 30 250 50 0 playback_reset PLAYBACK_RESET playback_speed_reset
 -70 -10 0 10 -4034 -1 -1;
-#X obj 273 24 bng 30 250 50 0 grain_pitch_reset GRAIN_PITCH_RESET grain_pitch_reset
--70 -20 0 10 -4032 -1 -1;
+#X obj 795 559 bng 30 250 50 0 grain_pitch_reset GRAIN_PITCH_RESET
+grain_pitch_reset -70 -20 0 10 -4032 -1 -1;
 #N canvas -9 -9 1920 976 save 0;
 #X obj 365 135 inlet;
 #X msg 362 248 start;
@@ -910,51 +910,50 @@ playback_speed -2 -8 0 10 -262144 -1 -1 3396 1;
 #X connect 4 0 7 1;
 #X connect 5 0 1 0;
 #X connect 6 0 2 0;
-#X restore 593 -211 pd save sound;
-#X obj 604 -270 tgl 50 0 save SAVE Save 0 -10 0 10 -260097 -1 -1 0
+#X restore 1115 324 pd save sound;
+#X obj 1126 265 tgl 50 0 save SAVE Save 0 -10 0 10 -260097 -1 -1 0
 1;
-#X obj 271 81 tgl 30 0 fixed_position FIXED_POSITION Fixed_position
--50 -10 0 10 -257985 -1 -1 0 1;
-#X obj -129 -731 cnv 15 100 60 empty empty empty 20 12 0 14 -233017
--66577 0;
-#X obj 391 25 bng 30 250 50 0 octave_down OCTAVE_DOWN octave_down -50
--10 0 10 -204800 -1 -1;
-#X floatatom 416 -98 5 0 8 0 - bit_depth -;
-#X obj 281 -96 hsl 128 15 0 1 0 0 bit_depth BIT_DEPTH bit_depth -2
--8 0 10 -262144 -1 -1 25400 1;
-#X floatatom 416 -64 5 0 1 0 - bit_volume -;
-#X obj 281 -63 hsl 128 15 0 1 0 0 bit_volume BIT_VOLUME bit_volume
+#X obj 793 616 tgl 30 0 fixed_position FIXED_POSITION Fixed_position
+-50 -10 0 10 -257985 -1 -1 1 1;
+#X obj 913 560 bng 30 250 50 0 octave_down OCTAVE_DOWN octave_down
+-50 -10 0 10 -204800 -1 -1;
+#X floatatom 938 437 5 0 8 0 - bit_depth -;
+#X obj 803 439 hsl 128 15 0 1 0 0 bit_depth BIT_DEPTH bit_depth -2
+-8 0 10 -262144 -1 -1 7870 1;
+#X floatatom 938 471 5 0 1 0 - bit_volume -;
+#X obj 803 472 hsl 128 15 0 1 0 0 bit_volume BIT_VOLUME bit_volume
 -2 -8 0 10 -262144 -1 -1 25400 1;
-#X obj 594 -332 r FILENAME;
-#X msg 593 -306 open granular_sounds_3.wav;
-#X obj 845 -340 tgl 40 0 empty empty Loop_Mode 17 7 0 10 -261682 -1
+#X obj 1116 203 r FILENAME;
+#X msg 1115 229 open granular_sounds_3.wav;
+#X obj 1367 195 tgl 40 0 empty empty Loop_Mode 17 7 0 10 -261682 -1
 -1 0 1;
-#X obj 830 -205 spigot;
-#X obj 830 -243 r buffer_len;
-#X obj 826 -156 s PLAY_HEAD;
-#X obj 858 -178 s G-DUR;
-#X obj -252 -112 hsl 128 15 0 0.9 0 0 feedback FEEDBACK feedback_(only_if_live)
--2 -8 0 10 -262144 -1 -1 19112 1;
-#X floatatom 51 -41 5 0 0.9 0 feedback feedback -;
-#X floatatom 52 -17 5 0 300 0 add_random_playhead PLAYHEAD_RAND playhead_rand
+#X obj 1352 330 spigot;
+#X obj 1352 292 r buffer_len;
+#X obj 1348 379 s PLAY_HEAD;
+#X obj 1380 357 s G-DUR;
+#X obj 270 423 hsl 128 15 0 0.9 0 0 feedback FEEDBACK feedback_(only_if_live)
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X floatatom 573 494 5 0 0.9 0 feedback feedback -;
+#X floatatom 574 518 5 0 300 0 add_random_playhead PLAYHEAD_RAND playhead_rand
 ;
-#X text 808 227 Playhead Stutter -> needs corridor between 80hz and
+#X text 1330 762 Playhead Stutter -> needs corridor between 80hz and
 5 hz?;
-#X floatatom 53 8 5 0 300 0 random_detune RAND_DETUNE rand_detune;
-#X obj 492 26 bng 30 250 50 0 octave_up OCTAVE_UP octave_up -50 -10
-0 10 -108390 -1 -1;
-#X floatatom 54 35 5 0 50 0 octave_groups OCTAVE_GROUPS octave_groups
+#X floatatom 575 543 5 0 300 0 random_detune RAND_DETUNE rand_detune
 ;
-#X obj 387 78 bng 30 250 50 0 mute MUTE mute -5 -10 0 10 -13381 -1
+#X obj 1014 561 bng 30 250 50 0 octave_up OCTAVE_UP octave_up -50 -10
+0 10 -108390 -1 -1;
+#X floatatom 576 570 5 0 50 0 octave_groups OCTAVE_GROUPS octave_groups
+;
+#X obj 909 613 bng 30 250 50 0 mute MUTE mute -5 -10 0 10 -13381 -1
 -1;
-#X obj -244 -335 tgl 50 0 stop_audio STOP_AUDIO AUDIO_ON/OFF -5 -5
-0 10 -258113 -1 -1 0 1;
+#X obj 278 200 tgl 50 0 stop_audio STOP_AUDIO AUDIO_ON/OFF -5 -5 0
+10 -258113 -1 -1 0 1;
 #X connect 21 0 13 0;
 #X connect 29 0 28 0;
-#X connect 37 0 38 0;
-#X connect 38 0 28 0;
-#X connect 39 0 40 1;
-#X connect 40 0 42 0;
-#X connect 40 0 43 0;
-#X connect 41 0 40 0;
+#X connect 36 0 37 0;
+#X connect 37 0 28 0;
+#X connect 38 0 39 1;
+#X connect 39 0 41 0;
+#X connect 39 0 42 0;
+#X connect 40 0 39 0;
 #X coords 0 0 3 1 0 0 0;
