@@ -1,12 +1,26 @@
-# MAX MSP PATCHES
+# MAX/MSP and Pure Data PATCHES
 
-This repository captures self-built Max patches. 
+This repository captures self-built Max & Pure Data patches. 
 
 ## 1. Granular Synth
 
 1. Max patch based on Tutorial by Oliver Thurley (https://www.youtube.com/watch?v=g3nAeDWgf9Y)
 
-2. stable Pure Data Patch with UI (Architecture based on Tutorial by Andrew Brown)
+2. Pure Data patch with UI (Architecture based on Tutorial by Andrew Brown) with following features:
+   - random octaves
+   - random playback/trigger frequency
+   - fixed position
+   - random playhead position
+   - random detune
+   - detune
+   - pitch lfo  
+   - random panning
+   - filter
+   - reverb
+   - bit reduction distortion
+   - live mode with delay line
+   - possibilty of having two seperat input channels
+   - recording and saving output
 
 ## 2. Substractive Synth
 
